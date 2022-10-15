@@ -10,7 +10,7 @@
     <h3>View in console please!</h3>
     <script>
         // Rock Paper Scissors App.
-        //user inputs "rock", "paper", or "scissors" into console
+        //user inputs "rock", "paper", or "scissors" into console(currently not case sensitive)
         //pc randomly decides between the 3 options
         //users selection ranks against pcs selection, and a winner is decided
         //prints the winner, asks to play again
@@ -26,32 +26,55 @@
         }
 
         function pcInput(min, max){
-            // Returns a random integer between 1 and 3
-            // 1 = rock
-            // 2 = paper
-            // 3 = scissors
-            //min = Math.ceil(1);
-            //max = Math.floor(3);
-            //return Math.floor(Math.random() * (max - min +1) + min);
-            return '3';
+            //Returns a random integer between 1 and 3
+            //1 = rock
+            //2 = paper
+            //3 = scissors
+            min = Math.ceil(1);
+            max = Math.floor(3);
+            return Math.floor(Math.random() * (max - min +1) + min);
         }
 
-        function userRock(){
-            if (userInput()=== "rock") {
-                if (pcInput() === '1'){
+        function gameLogic(){
+            // logic if user types rock
+            if (userInput() === "rock"){
+                if (pcInput() === "1"){
                     console.log("its a tie!");
                 }
-                if (pcInput() === '2'){
-                    console.log("Computer wins!");
+                if (pcInput() === "2"){
+                    console.log("Computer wins, Sorry!");
                 }
-                if (pcInput() === '3'){
-                    console.log("You Win! Congrats!!")
+                if (pcInput() === "3"){
+                    console.log("You win! Congrats!!");
                 }
-            }   
+            }
+            else if (userInput() === "paper"){
+                if (pcInput() === "1"){
+                    console.log("Computer wins. Sorry!");
+                }
+                if (pcInput() === "2"){
+                    console.log("Its a tie!");
+                }
+                if (pcInput() === "3"){
+                    console.log("You win! Congrats!");
+                }
+            }
+            else (userInput() === "scissors"){
+                if (pcInput() === "1"){
+                    console.log("Computer wins, Sorry!");
+                }
+                if (pcInput() === "2"){
+                    console.log("You win! Congrats!");
+                }
+                if (pcInput() === "3"){
+                    console.log("Its a tie!");
+                }
+            } 
         }
         setup();
-        userRock();
+        gameLogic();
         console.log(userInput());
+        console.log(gameLogic());
         //console.log(pcInput());
     </script>
 </body>
