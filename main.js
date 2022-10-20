@@ -1,3 +1,22 @@
+// This enables buttons to print things to the console.
+const button = document.querySelectorAll("button");
+button.forEach((button) => {
+    button.addEventListener("click", () => {
+        clicked();
+        console.log(button.id);
+        getPlayerChoice = button.id;
+        console.log(getPlayerChoice + " your choice is");
+    });
+});
+
+
+function clicked(){
+    console.log("clicked a button!");
+}
+
+
+/* Below this is the game logic. Set up for the site is above*/
+
 const options = ["rock", "paper", "scissors"];
 
 function getComputerChoice(){
@@ -35,6 +54,7 @@ function playRound(playerSelection, computerSelection){
 
 }
 
+/*
 function getPlayerChoice(){
     let validatedInput = false;
     while (validatedInput == false){
@@ -49,13 +69,13 @@ function getPlayerChoice(){
         }
     }
 }
-
+*/
 function game(){
     const scorePlayer = 0;
     const scoreComputer = 0;
     console.log("so it begins")
     for (let i = 0; i < 5; i++) {
-        const playerSelection = getPlayerChoice();
+        const playerSelection = getPlayerChoice(); // GET INPUT FROM BUTTONS
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
         if (winChecker(playerSelection, computerSelection) == "Player"){
@@ -72,7 +92,6 @@ function game(){
     } else if ( scorePlayer < scoreComputer){
         console.log("computer was the winner");
     }
-
 }
 
 game()
