@@ -1,19 +1,7 @@
-// This enables buttons to print things to the console.
-const button = document.querySelectorAll("button");
-button.forEach((button) => {
-    button.addEventListener("click", () => {
-        clicked();
-        console.log(button.id);
-        getPlayerChoice = button.id;
-        console.log(getPlayerChoice + " your choice is");
-    });
-});
-
-
-function clicked(){
-    console.log("clicked a button!");
-}
-
+/* Trying to figure out to get input from the buttons to actually return something
+    useful. In the process the score counting went and offed itself so I'm about to commit
+    a warcrime.
+*/
 
 /* Below this is the game logic. Set up for the site is above*/
 
@@ -51,31 +39,25 @@ function playRound(playerSelection, computerSelection){
     else{
         return "you lose!"
     }
-
 }
 
-/*
 function getPlayerChoice(){
-    let validatedInput = false;
-    while (validatedInput == false){
-        const choice = prompt("Rock Paper Scissors");
-        if (choice == null){
-            continue;
-        }
-        const choiceInLower = choice.toLowerCase();
-        if (options.includes(choiceInLower)){
-            validatedInput = true;
-            return choiceInLower;
-        }
-    }
+    const button = document.querySelectorAll("button");
+    button.forEach((button) => {
+        button.addEventListener("click", () => {
+            getPlayerClick = button.id;
+            console.log("your choice is " + getPlayerClick);
+        });
+    });
 }
-*/
+
 function game(){
-    const scorePlayer = 0;
-    const scoreComputer = 0;
+    var scorePlayer = 0;
+    var scoreComputer = 0;
     console.log("so it begins")
     for (let i = 0; i < 5; i++) {
         const playerSelection = getPlayerChoice(); // GET INPUT FROM BUTTONS
+        console.log(playerSelection);
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
         if (winChecker(playerSelection, computerSelection) == "Player"){
@@ -88,9 +70,9 @@ function game(){
     
     console.log("game over")
     if (scorePlayer > scoreComputer){
-        console.log("player was the winner");
+        console.log("player was the winner" + " pc score =" + scoreComputer);
     } else if ( scorePlayer < scoreComputer){
-        console.log("computer was the winner");
+        console.log("computer was the winner" + " player score " + scorePlayer);
     }
 }
 
